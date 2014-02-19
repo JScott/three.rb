@@ -46,13 +46,10 @@ window.make_context_current
 
 
 
-#vaos = $gl_uint[1]
-#buffers = $gl_uint[1]
+
 
 vaos = VertexArray.new
 vaos.bind
-#glGenVertexArrays(vaos.length, vaos.address)
-#glBindVertexArray(vaos[0].name)
 Three.error_check
 
 # allocate vertices
@@ -61,11 +58,15 @@ vertex2 = Snow::CStruct.new {
   float :y
 }
 vertices = vertex2[6]
+vertices[0].x, vertices[0].y = -0.90, -0.90
+vertices[1].x, vertices[1].y = 0.85, -0.90
+vertices[2].x, vertices[2].y = -0.90, 0.85
+vertices[3].x, vertices[3].y = 0.90, -0.85
+vertices[4].x, vertices[4].y = 0.90, 0.90
+vertices[5].x, vertices[5].y = -0.85, 0.90
 
 buffers = Buffer.new GL_ARRAY_BUFFER
 buffers.bind
-#glGenBuffers(buffers.length, buffers.address)
-#glBindBuffer(GL_ARRAY_BUFFER, buffers[0].name);
 glBufferData GL_ARRAY_BUFFER, vertices.bytesize, vertices.address, GL_STATIC_DRAW
 Three.error_check
 
@@ -79,7 +80,7 @@ Three.error_check
 
 #glVertexAttribPointer(index, size, type, normalized, stride, offset)
 #glVertexAttribPointer( GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid * pointer);
-glVertexAttribPointer 0, 5, GL_FLOAT, GL_FALSE, 0, 0
+glVertexAttribPointer 0, 2, GL_FLOAT, GL_FALSE, 0, 0
 glEnableVertexAttribArray 0
 Three.error_check
 
