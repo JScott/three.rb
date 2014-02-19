@@ -87,6 +87,7 @@ Three.error_check
 until window.should_close?
   # And do stuff
   Glfw.wait_events
+  puts "looping"
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
   vaos.bind
   glDrawArrays GL_TRIANGLES, 0, 6
