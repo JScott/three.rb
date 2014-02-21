@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Three.js but with more Ruby"
   s.authors     = ["Justin Scott"]
   s.email       = 'jvscott@gmail.com'
-  s.files       = ["lib/three.rb"]
+  s.files       = Dir.glob('lib/**/*.rb')
   s.homepage    =
     'http://www.jvscott.net'
   s.license       = 'MIT'
