@@ -2,9 +2,9 @@
 
 ## Ruby 3D library
 
-The aim of this project is to create a lightweight 3D library with a very low level of complexity for Ruby. Not only is OpenGL a bit onerous to work with in a modern context but Ruby support is largely outdated, bloated, or esoteric.
+The aim of this project is to create a lightweight 3D library with a very low level of complexity for Ruby.
 
-I think that this kind of library for Ruby would go a lot further into making elegant, understandable 3D graphics code than [three.js](https://github.com/mrdoob/three.js/) does.
+[three.js](https://github.com/mrdoob/three.js/) already shows us the immense benefit of improving the readability and portability of OpenGL. I propose that Ruby will allow for more readable code and hopefully feed back the values of [idiomatic](http://rubylove.io/howto/2013/11/23/idomatic-ruby-1/) [Ruby](http://davidraffauf.com/2013/01/30/writing-more-idiomatic-ruby-code/) into the three.js community. A win for everyone!
 
 ## Usage
 
@@ -21,9 +21,9 @@ See main.rb for how I'm currently using it. It's updating too quickly for me to 
 
 ## What's next?
 
-* 0.1 => Get the base [three.js example](http://jsfiddle.net/Gy4w7/) running with three.rb
-* 0.? => Start implementing useful things from the [three.js docs](http://threejs.org/docs/) and [three.js examples](http://threejs.org/) as I see fit
-* 1.0 => Feature parity (or near to it) with three.js I suppose
+Until 1.0.0 I'll probably just be implementing the features necessary to match the [basic github example](https://github.com/mrdoob/three.js/blob/master/README.md) and [tutorial three.js examples](http://stemkoski.github.io/Three.js/). Patch versions represent implemented examples, minor versions represent entire sections of examples, such as Sprite or Shader examples. Basic through Shader examples, inclusive, are a good candidate for 1.0.0 at which point I'll probably switch over the implementing out of the [three.js docs](http://threejs.org/docs/).
+
+I think that this plan best represents the user needs as opposed to the needs of a graphics framework.
 
 #License
 
