@@ -1,21 +1,11 @@
 require 'three'
 
-#init()
-#animate()
+Three::setup 800, 600, "Three.rb test"
 
-def animate
-    #requestAnimationFrame( animate )
-    #mesh.rotation.x += 0.01
-    #mesh.rotation.y += 0.02
-    #renderer.render scene, camera
-end
-
-width = 10 #window.innerWidth
-height = 10 #window.innerHeight
-camera = Three::PerspectiveCamera.new 75, width / height, 1, 10000
+@camera = Three::PerspectiveCamera.new 75, 1, 10000
 #camera.position.z = 1000
 
-scene = Three::Scene.new
+@scene = Three::Scene.new
 
 #geometry = Three::BoxGeometry.new 200, 200, 200
 #material = Three::MeshBasicMaterial.new { color: 0xff0000, wireframe: true }
@@ -23,5 +13,15 @@ scene = Three::Scene.new
 #mesh = Three.Mesh.new geometry, material
 #scene.add mesh
 
-renderer = Three::Renderer.new
-#renderer.setSize window.innerWidth, window.innerHeight
+@renderer = Three::Renderer.new
+
+@controls = Three::Controls.new
+@controls.for Glfw::KEY_ESCAPE do Three.close_application end
+
+Three::each_frame @controls do
+   #requestAnimationFrame( animate )
+   #mesh.rotation.x += 0.01
+   #mesh.rotation.y += 0.02
+   #renderer.render scene, camera
+   @renderer.render @scene, @camera
+end

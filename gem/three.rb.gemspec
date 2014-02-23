@@ -12,5 +12,7 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
 	s.add_dependency 'glfw3', '~> 0.4', '>= 0.4.5'
 	s.add_dependency 'opengl-core', '~> 1.3', '>= 1.3.2'
-	s.add_dependency 'snow-data', '~> 1.3', '>= 1.3.0'
+	#s.add_dependency 'opengl-core', '~> 2.0', '>= 2.0.1'
+	#s.add_dependency 'opengl-aux', '~> 1.0', '>= 1.0.0.pre1'
+	s.add_dependency 'snow-data', '~> 1.3', '>= 1.3.1'
 end

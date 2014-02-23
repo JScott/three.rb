@@ -13,9 +13,9 @@ module Three
 	end
 
 	class PerspectiveCamera < Camera
-		def initialize fov, aspect, near, far
+		def initialize fov, near, far
 			super()
-
+			aspect = Three.window.width/Three.window.height
 		end
 	end
 end

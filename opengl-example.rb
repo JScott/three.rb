@@ -6,16 +6,15 @@
 
 require 'three.rb'
 
-# Initialize GLFW 3.
+# Three.rb doesn't cover controls and window handling. We leave that to Glfw
 Glfw.init
-
-# Set window hints for GL 3.2 onward.
-Glfw::Window.window_hint(Glfw::VISIBLE, GL_FALSE)
+#Glfw::Window.window_hint(Glfw::VISIBLE, GL_FALSE)
 Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MAJOR, 3)
 Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MINOR, 2)
 Glfw::Window.window_hint(Glfw::OPENGL_FORWARD_COMPAT, GL_TRUE)
 Glfw::Window.window_hint(Glfw::OPENGL_PROFILE, Glfw::OPENGL_CORE_PROFILE)
-
+window = Glfw::Window.new(800, 600, "Three.rb")
+window.show
 
 # Set a couple variables for use inside the main blocks.
 #more_buffers = nil
@@ -25,8 +24,7 @@ Glfw::Window.window_hint(Glfw::OPENGL_PROFILE, Glfw::OPENGL_CORE_PROFILE)
 
 
 
-window = Glfw::Window.new(800, 600, "Three.rb")
-window.show
+
 
 
 #close_window = lambda do window.should_close = true end
@@ -50,7 +48,7 @@ window.make_context_current
 
 vaos = VertexArray.new
 vaos.bind
-Three.error_check
+Three::GLUtils.error_check
 
 # allocate vertices
 vertex2 = Snow::CStruct.new { 
@@ -68,21 +66,21 @@ vertices[5].x, vertices[5].y = -0.85, 0.90
 buffers = Buffer.new GL_ARRAY_BUFFER
 buffers.bind
 glBufferData GL_ARRAY_BUFFER, vertices.bytesize, vertices.address, GL_STATIC_DRAW
-Three.error_check
+Three::GLUtils.error_check
 
-vertex_shader = Three.compile_shader GL_VERTEX_SHADER, "passthru.vert"
-fragment_shader = Three.compile_shader GL_FRAGMENT_SHADER, "passthru.frag"
-Three.error_check
+vertex_shader = Three::GLUtils.compile_shader GL_VERTEX_SHADER, "passthru.vert"
+fragment_shader = Three::GLUtils.compile_shader GL_FRAGMENT_SHADER, "passthru.frag"
+Three::GLUtils.error_check
 
-program = Three.create_shader_program vertex_shader, fragment_shader
+program = Three::GLUtils.create_shader_program vertex_shader, fragment_shader
 program.use
-Three.error_check
+Three::GLUtils.error_check
 
 #glVertexAttribPointer(index, size, type, normalized, stride, offset)
 #glVertexAttribPointer( GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid * pointer);
 glVertexAttribPointer 0, 2, GL_FLOAT, GL_FALSE, 0, 0
 glEnableVertexAttribArray 0
-Three.error_check
+Three::GLUtils.error_check
 
 until window.should_close?
   # And do stuff
@@ -108,7 +106,7 @@ end
 #VAOs.free!
 
 #more_buffers = nil
-#Three.error_check
+#Three::GLUtils.error_check
 
   # End cleanup block
 
