@@ -9,6 +9,7 @@ require 'three/scene'
 require 'three/camera'
 require 'three/renderer'
 require 'three/controls'
+require 'three/geometry'
 
 module Three
 	@@window = nil
@@ -16,7 +17,7 @@ module Three
 		@@window
 	end
 
-	def self.setup width, height, title
+	def self.setup(width, height, title)
 		Glfw.init
 		Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MAJOR, 3)
 		Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MINOR, 2)
@@ -32,7 +33,7 @@ module Three
 		window.should_close = true
 	end
 
-	def self.each_frame controls=nil, &function
+	def self.each_frame(controls=nil, &function)
 		@@window.set_key_callback do |window, pressed_key, code, action, mods|
 			controls.each do |expected_key, action|
 				action.call if pressed_key == expected_key

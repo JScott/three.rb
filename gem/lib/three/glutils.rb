@@ -1,4 +1,14 @@
 module Three
+	Vector3 	= Snow::CStruct[:Vec3, 'x: float :4; y: float :4; z: float :4']
+	Vector2	= Snow::CStruct[:Vec2, 'x: float :4; y: float :4']
+	#Color 	= Snow::CStruct[:Color, 'r: ui8; g: ui8; b: ui8; a: ui8']
+	#Vertex 	= Snow::CStruct.new {
+	#	vec3  :position,      align: 4
+	#	vec3  :normal,        align: 4
+	#	vec2 	:texcoord, [2], align: 4
+	#	color :color,         align: 4
+	#}
+
 	class GLUtils
 		def self.error_check
 			error = glGetError()

@@ -6,7 +6,7 @@ module Three
 			@registered_actions = {}
 		end
 
-		def for key, &action
+		def for(key, &action)
 			@registered_actions[key] = action if action
 		end
 
