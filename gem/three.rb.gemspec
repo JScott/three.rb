@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
 	#s.add_dependency 'opengl-core', '~> 2.0', '>= 2.0.1'
 	#s.add_dependency 'opengl-aux', '~> 1.0', '>= 1.0.0.pre1'
 	s.add_dependency 'snow-data', '~> 1.3', '>= 1.3.1'
+  s.add_dependency 'color', '~> 1.5', '>= 1.5.1'
 end

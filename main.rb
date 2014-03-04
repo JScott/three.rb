@@ -14,7 +14,8 @@ vertices[0].x, vertices[0].y, vertices[0].z = -0.90, -0.90, 1.0
 vertices[1].x, vertices[1].y, vertices[0].z = 0.85, -0.90, 1.0
 vertices[2].x, vertices[2].y, vertices[0].z = -0.90, 0.85, 1.0
 geometry.push vertices
-#material = Three::MeshBasicMaterial.new { color: 0xff0000, wireframe: true }
+
+material = Three::Material.new color: 0xff0000, wireframe: true
 
 #mesh = Three.Mesh.new geometry, material
 #scene.add mesh

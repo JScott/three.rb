@@ -1,3 +1,4 @@
+require 'color'
 require 'glfw3'
 require 'opengl-core'
 require 'opengl-core/aux'
@@ -10,6 +11,8 @@ require 'three/camera'
 require 'three/renderer'
 require 'three/controls'
 require 'three/geometry'
+require 'three/material'
+require 'three/color'
 
 module Three
 	@@window = nil
