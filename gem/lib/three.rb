@@ -13,6 +13,7 @@ require 'three/controls'
 require 'three/geometry'
 require 'three/material'
 require 'three/color'
+require 'three/mesh'
 
 module Three
 	@@window = nil
@@ -20,7 +21,7 @@ module Three
 		@@window
 	end
 
-	def self.setup(width, height, title)
+	def self.setup(width: 800, height: 600, title: "Three.rb application")
 		Glfw.init
 		Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MAJOR, 3)
 		Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MINOR, 2)
@@ -30,6 +31,7 @@ module Three
 		@@window.set_close_callback do |window|
 			Three.close_application
 		end
+		@@window.make_context_current
 	end
 
 	def self.close_application
@@ -43,9 +45,10 @@ module Three
 			end
 		end
 		until @@window.should_close?
-			puts "frame"
-  			Glfw.wait_events
+  			Glfw.wait_events # TODO: Glfw.poll_events
+  			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 			function.call
+  			window.swap_buffers
 		end
 	end
 end

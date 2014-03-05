@@ -9,14 +9,14 @@ module Three
 	end
 
 	class OrthographicCamera < Camera
-		def initialize(left, right, top, bottom, near, far)
+		def initialize(left, right, top, bottom, near: 1, far: 10000)
 			super near, far
 		end
 	end
 
 	class PerspectiveCamera < Camera
 		attr_accessor :aspect
-		def initialize(fov, near, far)
+		def initialize(fov: 75, near: 1, far: 10000)
 			super near, far
 			@aspect = Three.window.width/Three.window.height
 		end
