@@ -7,6 +7,11 @@ module Three
 	#	vec2 	:texcoord, [2], align: 4
 	#	color :color,         align: 4
 	#}
+	class Snow::CStruct::Vec3::Array
+		def step by, &method
+			(0..@length).step(by) do |i| method.call(i) end
+		end
+	end
 	
 	class GLUtils
 		def self.error_check
