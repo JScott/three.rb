@@ -1,6 +1,7 @@
 module Three
 	class Renderer
 		attr_accessor :vbo, :vao, :program
+
 		def initialize
 			@vao = VertexArray.new
 			@vao.bind
@@ -36,7 +37,7 @@ module Three
 
 					vertices = object.geometry.vertices
 					glBufferData GL_ARRAY_BUFFER, vertices.bytesize, vertices.address, GL_STATIC_DRAW
-					if object.material.wireframe
+					if object.material.wireframe # TODO: hide rendering methods away in syntactical sugar
 						vertices.step(3) do |i| glDrawArrays GL_LINE_LOOP, i, 3 end
 						#(0..vertices.length).step(3) do |i| glDrawArrays GL_LINE_LOOP, i, 3 end
 					else
