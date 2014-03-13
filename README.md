@@ -25,6 +25,8 @@ Until 1.0.0 I'll probably just be implementing the features necessary to match t
 
 I think that this plan best represents the user needs as opposed to the needs of a graphics framework.
 
+You can check out my general progress at the moment via [Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1036286).
+
 #License
 
 Three.rb is licensed under a simplified BSD license. I picked this license because [opengl-core](https://github.com/nilium/ruby-opengl) uses it, Noel's really smart, and I want to be smart too.
