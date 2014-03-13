@@ -8,16 +8,15 @@ The aim of this project is to create a lightweight 3D library with a very low le
 
 ## Usage
 
-As of the moment, you'll have to compile the gem manually. The file structure is still a bit messy as well.
+As of the moment, you'll have to compile the gem manually.
 
 ```
 git clone git@github.com:JScott/three.rb.git
-cd three/gem
 gem build three.rb.gemspec
 gem install three-0.0.1.gem
 ```
 
-See main.rb for how I'm currently using it. It's updating too quickly for me to care to paste it here right now.
+See examples/main.rb for how I'm currently using it. It's updating too quickly for me to care to paste it here right now.
 
 ## What's next?
 
