@@ -29,7 +29,6 @@ module Three
 			scene.objects.each do |object|
 				case object
 				when Three::Mesh
-					# TODO: alpha support?
 					color = object.material.color
 					alpha = 1.0
 					glUniform4f @program.uniform_location("uColor"), color.r, color.g, color.b, alpha
@@ -37,9 +36,8 @@ module Three
 
 					vertices = object.geometry.vertices
 					glBufferData GL_ARRAY_BUFFER, vertices.bytesize, vertices.address, GL_STATIC_DRAW
-					if object.material.wireframe # TODO: hide rendering methods away in syntactical sugar
+					if object.material.wireframe
 						vertices.step(3) do |i| glDrawArrays GL_LINE_LOOP, i, 3 end
-						#(0..vertices.length).step(3) do |i| glDrawArrays GL_LINE_LOOP, i, 3 end
 					else
 						glDrawArrays GL_TRIANGLES, 0, vertices.count
 					end
