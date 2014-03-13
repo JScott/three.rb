@@ -30,7 +30,6 @@ mesh = Three::Mesh.new geometry, material
 @controls.for Glfw::KEY_ESCAPE do Three.close_application end
 
 Three::each_frame @controls do
-   puts "frame"
    #mesh.rotation.x += 0.01
    #mesh.rotation.y += 0.02
    @renderer.render @scene, @camera

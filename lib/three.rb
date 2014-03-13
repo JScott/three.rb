@@ -23,10 +23,10 @@ module Three
 
 	def self.setup(width: 800, height: 600, title: "Three.rb application")
 		Glfw.init
-		Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MAJOR, 3)
-		Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MINOR, 2)
-		Glfw::Window.window_hint(Glfw::OPENGL_FORWARD_COMPAT, GL_TRUE)
-		Glfw::Window.window_hint(Glfw::OPENGL_PROFILE, Glfw::OPENGL_CORE_PROFILE)
+		#Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MAJOR, 3)
+		#Glfw::Window.window_hint(Glfw::CONTEXT_VERSION_MINOR, 2)
+		#Glfw::Window.window_hint(Glfw::OPENGL_FORWARD_COMPAT, GL_TRUE)
+		#Glfw::Window.window_hint(Glfw::OPENGL_PROFILE, Glfw::OPENGL_CORE_PROFILE)
 		@@window = Glfw::Window.new width, height, title
 		@@window.set_close_callback do |window|
 			Three.close_application
@@ -45,7 +45,7 @@ module Three
 			end
 		end
 		until @@window.should_close?
-  			Glfw.wait_events # TODO: Glfw.poll_events
+  			Glfw.poll_events # Glfw.wait_events
   			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 			function.call
   			window.swap_buffers
