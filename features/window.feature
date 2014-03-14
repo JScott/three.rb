@@ -1,6 +1,6 @@
 Feature: Create window
 	As a developer
-	I can create a new window
+	I can create and modify a new window
 	So that it can display cool stuff
 
 	Scenario: Default window
