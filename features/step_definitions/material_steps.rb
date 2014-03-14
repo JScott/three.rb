@@ -4,6 +4,10 @@ Given /^I create a material$/ do
 	@material = Three::Material.new
 end
 
+Given /^I create a (.+)? colored material$/ do |color|
+	@material = Three::Material.new color: color
+end
+
 When /^I change the color to (.+)?$/ do |color|
 	@material.color = color
 end

@@ -2,7 +2,7 @@ module Three
 	class Material
 		attr_accessor :color, :wireframe
 		def initialize(color: Three::Color.by_name("white"), wireframe: false)
-			@color = color
+			self.color = color
 			@wireframe = wireframe
 		end
 

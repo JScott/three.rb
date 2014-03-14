@@ -7,20 +7,24 @@ Feature: Create material
 		Given I create a material
 		Then it creates a default material
 
-	Scenario: Change material color
-		Given I create a material
-		When I change the color to 0xff0000
-		Then its object's color changes to red
+	Scenario Outline: Set material color
+		Given I create a <input> colored material
+		Then its object's color changes to <expected>
+		Examples:
+			| input    | expected |  
+			| 0xff0000 | red      |  
+			| red      | red      |  
+			| false    | white    |  
 
-	Scenario: Change color by name
+	Scenario Outline: Change material color
 		Given I create a material
-		When I change the color to red
-		Then its object's color changes to red
-
-	Scenario: Change color with an invalid value
-		Given I create a material
-		When I change the color to false
-		Then its object's color changes to white
+		When I change the color to <input>
+		Then its object's color changes to <expected>
+		Examples:
+			| input    | expected |  
+			| 0xff0000 | red      |  
+			| red      | red      |  
+			| false    | white    |  
 
 	Scenario: Render in wireframe
 		Given I create a material
