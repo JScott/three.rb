@@ -19,12 +19,13 @@ end
 
 
 Then /^it creates a default material$/ do
-	assert_equals	[@material.color, Three::Color.by_name("white")],
-						[@material.wireframe, false]
+	@material.should_not be_nil
+	@material.color.should be Three::Color.by_name("white")
+	@material.wireframe.should be_false
 end
 
 Then /^its object's color changes to (.+)?$/ do |color|
-	assert_equals [@material.color, Three::Color.by_name(color)]
+	@material.color.should be Three::Color.by_name(color)
 end
 
 Then /^its object displays in wireframe$/ do

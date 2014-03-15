@@ -39,6 +39,7 @@ end
 
 Then /^it creates (.+)? geometry$/ do |vertex_order|
 	vertex_order = GL_TRIANGLES if vertex_order == "default"
+	@geometry.should_not be_nil
 	@geometry.vertex_order.should be vertex_order
 end
 

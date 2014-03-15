@@ -10,22 +10,22 @@ end
 
 
 Then /^it creates a default window$/ do
-	assert_not_equals [Three.window, nil]
-	assert_equals		[Three.window.height, 600],
-							[Three.window.width, 800]
+	Three.window.should_not be_nil
+	Three.window.height.should be 600
+	Three.window.width.should be 800
 end
 
 Then /^it creates a (.+)?x(.+)? window$/ do |width, height|
-	assert_not_equals [Three.window, nil]
-	assert_equals		[Three.window.height, height.to_i],
-							[Three.window.width, width.to_i]
+	Three.window.should_not be_nil
+	Three.window.height.should be height.to_i
+	Three.window.width.should be width.to_i
 end
 
-Then /^it goes into a frame loop for at least (.+)? frame[s]?$/ do |frames|
+Then /^it goes into a frame loop for at least (.+)? frame[s]?$/ do |expected_frames|
 	count = 0
 	Three::each_frame @controls do
 		count += 1
-		Three.close_application if count == frames.to_i
+		Three.close_application if count == expected_frames.to_i
 	end
-	assert_equals [count, frames.to_i]
+	count.should be expected_frames.to_i
 end
