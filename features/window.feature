@@ -1,4 +1,4 @@
-Feature: Create window
+Feature: Window contexts
 	As a developer
 	I can create and modify a new window
 	So that it can display cool stuff

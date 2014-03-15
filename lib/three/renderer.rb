@@ -39,7 +39,7 @@ module Three
 					if object.material.wireframe
 						vertices.step(3) do |i| glDrawArrays GL_LINE_LOOP, i, 3 end
 					else
-						glDrawArrays GL_TRIANGLES, 0, vertices.count
+						glDrawArrays object.geometry.vertex_order, 0, vertices.count
 					end
 					Three::GLUtils.error_check
 				end

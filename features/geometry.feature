@@ -1,11 +1,11 @@
-Feature: Object materials
+Feature: Object geometry
 	As a developer
-	I can create and modify new material
-	So that it can hold important material data
+	I can create and modify geometry vertices
+	So that objects can be displayed in space
 
-	Scenario: Default material
-		Given I create a material
-		Then it creates a default material
+	Scenario: Default geometry
+		Given I create geometry
+		Then it creates a default geometry
 
 	Scenario Outline: Set material color
 		Given I create a <input> colored material
