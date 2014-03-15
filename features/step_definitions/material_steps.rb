@@ -8,6 +8,7 @@ Given /^I create a (.+)? colored material$/ do |color|
 	@material = Three::Material.new color: color
 end
 
+
 When /^I change the color to (.+)?$/ do |color|
 	@material.color = color
 end
@@ -15,6 +16,7 @@ end
 When /^I enable wireframe mode$/ do
 	@material.wireframe = true
 end
+
 
 Then /^it creates a default material$/ do
 	assert_equals	[@material.color, Three::Color.by_name("white")],

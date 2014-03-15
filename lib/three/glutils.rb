@@ -8,10 +8,22 @@ module Three
 	#	color :color,         align: 4
 	#}
 	class Snow::CStruct::Vec3::Array
-		def step by, &method
+		def step(by, &method)
 			(0..@length).step(by) do |i| method.call(i) end
 		end
+
+		def merge!(vertices)
+			raise ArgumentError.new ("Can only merge with another Three::Vector3::Array") unless vertices.class == Snow::CStruct::Vec3::Array
+			old_length = self.length
+			self.resize! old_length+vertices.length
+			vertices.each_with_index do |v, i|
+				self[old_length+i].x = vertices[i].x
+				self[old_length+i].y = vertices[i].y
+				self[old_length+i].z = vertices[i].z
+			end
+		end
 	end
+
 	
 	class GLUtils
 		def self.error_check

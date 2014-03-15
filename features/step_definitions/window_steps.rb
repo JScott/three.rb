@@ -8,6 +8,7 @@ Given /^I create a (.+)?x(.+)? Three application$/ do |width, height|
 	Three::setup width: width.to_i, height: height.to_i
 end
 
+
 Then /^it creates a default window$/ do
 	assert_not_equals [Three.window, nil]
 	assert_equals		[Three.window.height, 600],
