@@ -29,5 +29,5 @@ Then /^its object's color changes to (.+)?$/ do |color|
 end
 
 Then /^its object displays in wireframe$/ do
-	pending
+	pending "Requires a pdiff framework"
 end
