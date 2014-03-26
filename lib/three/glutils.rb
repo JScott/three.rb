@@ -31,14 +31,6 @@ module Three
 			raise "GLError (#{error.to_s(16)}): #{get_error_string(error.to_i)}" unless error == GL_NO_ERROR
 		end
 
-		def self.set_key_callback(window, *keys)
-			window.set_key_callback do |_window, key_pressed, code, action, mods|
-			  	keys.each do |key, function|
-			  		function.call if key_pressed == key
-			  	end
-			end
-		end
-
 		def self.compile_shader(type, path)
 			shader = Shader.new type
 			shader.source = File.open(path).read

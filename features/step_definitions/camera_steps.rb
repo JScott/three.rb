@@ -15,8 +15,8 @@ end
 Then /^it creates a default[ ]?(.+)? camera object$/ do |camera_type|
 	@camera.should_not be_nil
 	@camera.position.should_not be_nil
-	@camera.near.should be 1
-	@camera.far.should be 10000
+	@camera.near.should equal 1
+	@camera.far.should equal 10000
 end
 
 Then /^it sets the aspect ratio to (.+)?$/ do |ratio|

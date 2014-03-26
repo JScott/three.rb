@@ -11,8 +11,8 @@ end
 
 Then /^it creates a default window$/ do
 	Three.window.should_not be_nil
-	Three.window.height.should be 600
-	Three.window.width.should be 800
+	Three.window.height.should equal 600
+	Three.window.width.should equal 800
 end
 
 Then /^it creates a (.+)?x(.+)? window$/ do |width, height|
