@@ -1,5 +1,5 @@
 module Three
-	class Camera
+	class BaseCamera
 		attr_accessor :position, :near, :far
 		def initialize(near, far)
 			@position = Vector3.new
@@ -8,13 +8,13 @@ module Three
 		end
 	end
 
-	class OrthographicCamera < Camera
-		def initialize(left, right, top, bottom, near: 1, far: 10000)
+	class OrthographicCamera < BaseCamera
+		def initialize(left: -0.5, right: 0.5, top: 0.5, bottom: -0.5, near: 1, far: 10000)
 			super near, far
 		end
 	end
 
-	class PerspectiveCamera < Camera
+	class PerspectiveCamera < BaseCamera
 		attr_accessor :aspect
 		def initialize(fov: 75, near: 1, far: 10000)
 			super near, far
