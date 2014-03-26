@@ -23,7 +23,7 @@ end
 
 Then /^it goes into a frame loop for at least (.+)? frame[s]?$/ do |expected_frames|
 	count = 0
-	Three::each_frame @controls do
+	Three::each_frame do
 		count += 1
 		Three.close_application if count == expected_frames.to_i
 	end
