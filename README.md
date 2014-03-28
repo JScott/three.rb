@@ -18,14 +18,10 @@ gem install three-0.0.1.gem
 
 See examples/main.rb for how I'm currently using it. It's updating too quickly for me to care to paste it here right now.
 
-## External docs
-
-[Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1036286)
-
-[Relish](https://www.relishapp.com/JScott/Three-rb/docs)
-
 ## What's next?
 
 Until 1.0.0 I'll probably just be implementing the features necessary to match the [basic github example](https://github.com/mrdoob/three.js/blob/master/README.md) and [tutorial three.js examples](http://stemkoski.github.io/Three.js/). Patch versions represent implemented examples, minor versions represent entire sections of examples, such as Sprite or Shader examples. Basic through Shader examples, inclusive, are a good candidate for 1.0.0 at which point I'll probably switch over the implementing out of the [three.js docs](http://threejs.org/docs/).
 
-I think that this plan best represents the user needs as opposed to the needs of a graphics framework. Y'know?
+I think that this plan best represents the user needs as opposed to the needs of a graphics framework.
+
+You can check out my general progress at the moment via [Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1036286).
