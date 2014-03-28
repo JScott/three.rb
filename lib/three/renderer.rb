@@ -2,7 +2,7 @@ module Three
 	class Renderer
 		attr_accessor :vbo, :vao, :program
 
-		def initialize
+		def initialize(vertex_shader: "passthru.vert", fragment_shader: "passthru.frag")
 			@vao = VertexArray.new
 			@vao.bind
 			Three::GLUtils.error_check
@@ -11,8 +11,8 @@ module Three
 			@vbo.bind
 			Three::GLUtils.error_check
 
-			vertex_shader = Three::GLUtils.compile_shader GL_VERTEX_SHADER, "passthru.vert"
-			fragment_shader = Three::GLUtils.compile_shader GL_FRAGMENT_SHADER, "passthru.frag"
+			vertex_shader = Three::GLUtils.compile_shader GL_VERTEX_SHADER, vertex_shader
+			fragment_shader = Three::GLUtils.compile_shader GL_FRAGMENT_SHADER, fragment_shader
 			Three::GLUtils.error_check
 
 			@program = Three::GLUtils.create_shader_program vertex_shader, fragment_shader

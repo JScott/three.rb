@@ -8,16 +8,16 @@ Three::setup title: "Three.rb test"
 @scene = Three::Scene.new
 
 #geometry = Three::BoxGeometry.new 200, 200, 200
-geometry = Three::Geometry.new
+box = Three::Geometry.new
 vertices = Three::Vector3[3]
 vertices[0].x, vertices[0].y, vertices[0].z = -0.90, -0.90, 1.0
 vertices[1].x, vertices[1].y, vertices[1].z = 0.85, -0.90, 1.0
 vertices[2].x, vertices[2].y, vertices[2].z = -0.90, 0.85, 1.0
-geometry.push vertices
+box.push vertices
 
-material = Three::Material.new color: 0x33ffaa, wireframe: true
+box_material = Three::Material.new color: 0x33ffaa, wireframe: true
 
-mesh = Three::Mesh.new geometry, material
+mesh = Three::Mesh.new geometry: box, material: box_material
 @scene.add mesh
 
 @renderer = Three::Renderer.new

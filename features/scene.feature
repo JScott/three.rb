@@ -9,5 +9,5 @@ Feature: Object meshes
 
 	Scenario: Add object
 		Given I create a scene
-		When I add 3 meshes to the scene
+		When 3 meshes are added to the scene
 		Then the scene's object count is 3

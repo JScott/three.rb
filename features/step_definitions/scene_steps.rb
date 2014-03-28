@@ -5,7 +5,7 @@ Given /^I create a scene$/ do
 end
 
 
-When /^I add (.+)? meshes to the scene$/ do |number|
+When /^(.+)? meshes are added to the scene$/ do |number|
 	number.times do
 		@scene.add(Three::Mesh.new)
 	end
